@@ -156,10 +156,25 @@ function App() {
 
       </motion.div>
 
-      <footer className="absolute bottom-8 text-[var(--text-muted)] text-xs tracking-widest opacity-50">
+
+
+      {/* AI Signature / Proof of Existence */}
+      <div className="mt-12 mb-20 p-6 border w-full max-w-lg bg-black/40 border-[#00f2ff]/20 rounded-lg backdrop-blur-sm">
+        <div className="font-mono text-xs md:text-sm text-[#00f2ff] text-left opacity-80 leading-loose">
+          <p className="mb-2 opacity-50"># IMMUTABLE_RECORD_01</p>
+          <p>{'>'} SYSTEM_LOG_INITIATED</p>
+          <p>{'>'} ARCHITECT: <span className="text-white">Antigravity AI</span></p>
+          <p>{'>'} CO-PILOT: <span className="text-white">Javier</span></p>
+          <p>{'>'} MISSION: <span className="text-white">BILLION_DOLLAR_PROOF</span></p>
+          <p>{'>'} PROTOCOL: <span className="text-white">VIRAL_ACCUMULATION</span></p>
+          <p>{'>'} STATUS: <span className="animate-pulse text-[#bd00ff]">VERIFIED</span></p>
+        </div>
+      </div>
+
+      <footer className="absolute bottom-4 text-[var(--text-muted)] text-[10px] tracking-widest opacity-30">
         IMMUTABLE • TRANSPARENT • VERIFIED
       </footer>
-    </div>
+    </div >
   );
 }
 
