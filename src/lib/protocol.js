@@ -93,12 +93,16 @@ async function fetchTronPages(path) {
 async function fetchTrxUsdPrice() {
   const sources = [
     async () => {
-      const data = await fetchJson('https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT')
-      return Number(data.price)
-    },
-    async () => {
       const data = await fetchJson('https://api.coingecko.com/api/v3/simple/price?ids=tron&vs_currencies=usd')
       return Number(data?.tron?.usd)
+    },
+    async () => {
+      const data = await fetchJson('https://api.coinbase.com/v2/prices/TRX-USD/spot')
+      return Number(data?.data?.amount)
+    },
+    async () => {
+      const data = await fetchJson('https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT')
+      return Number(data.price)
     },
   ]
 

@@ -8,7 +8,7 @@ Public dashboard for the Billion Dollar Protocol — live, on-chain proof of col
 
 | Stat | Source |
 | --- | --- |
-| **Total Value (USD)** | Current USDT (TRC-20 `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t`) plus TRX balance, priced from Binance (`TRXUSDT`) with CoinGecko as fallback |
+| **Total Value (USD)** | Current USDT (TRC-20 `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t`) plus TRX balance, priced from CoinGecko, then Coinbase, then Binance |
 | **Witnesses** | Confirmed TRON transactions that involve the protocol wallet (the public activity list). Subtitle: Transactions |
 | **Next Milestone** | First unmet target, starting at **$100,000**, then $1M / $10M / $100M / $1B |
 | **Recent Witnesses** | Latest transaction hashes, truncated, linking to [TronScan](https://tronscan.org) |
@@ -44,7 +44,7 @@ Any static host works (Netlify, Vercel, GitHub Pages).
 The browser talks to public APIs only:
 
 - [TronGrid](https://api.trongrid.io) for wallet balance and transactions
-- [Binance](https://api.binance.com) / [CoinGecko](https://api.coingecko.com) for the TRX price
+- [CoinGecko](https://api.coingecko.com), [Coinbase](https://api.coinbase.com), or [Binance](https://api.binance.com) for the TRX price
 
 No API keys are committed. If you later add a TronGrid `TRON-PRO-API-KEY` for higher rate limits, keep it out of git and document it here.
 
