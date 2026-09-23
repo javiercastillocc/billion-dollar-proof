@@ -1,0 +1,10 @@
+# Publish the Vite production build. The repository root index.html
+# references /src/main.jsx, which only runs under the Vite dev server.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Vite 7 requires Node.js 20.19+ or 22.12+. Existing Netlify sites keep
+# whatever Node version they were pinned to, which may be too old.
+[build.environment]
+  NODE_VERSION = "22"

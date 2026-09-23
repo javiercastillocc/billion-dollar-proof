@@ -35,11 +35,22 @@ npm run preview
 
 ## Deploy
 
-Any static host works (Netlify, Vercel, GitHub Pages).
+Production must serve the Vite build in `dist/`, not the repository root. The source `index.html` loads `/src/main.jsx`, which browsers can run only with the Vite dev server. Publishing that file produces a blank page.
 
-- **Build command:** `npm run build`
-- **Publish directory:** `dist`
-- **Environment variables:** none required
+Netlify site `gleaming-tarsier-541e46` ([billiondollarproof.ai](https://billiondollarproof.ai)) reads [`netlify.toml`](./netlify.toml) on each deploy. File-based settings override the same fields in the Netlify UI.
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Publish directory | `dist` |
+| Node.js | `22` (`NODE_VERSION`; Vite 7 needs 20.19+ or 22.12+) |
+| Environment variables | none |
+
+After this config is on the production branch, open the site in Netlify and use **Deploys → Trigger deploy → Clear cache and deploy site**. That drops a cached install from the previous publish of the repository root. A normal deploy also replaces the published files; clear cache if the new build still skips install or uses an old Node version.
+
+Confirm the deploy log shows `npm run build` and publish directory `dist`. The live `index.html` must reference hashed files under `/assets/`, never `/src/main.jsx`.
+
+The same build command and publish directory work on any other static host.
 
 The browser talks to public APIs only:
 
